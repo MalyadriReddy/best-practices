@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--FizzBuzz-->
+        <scene sceneID="l96-qu-31c">
+            <objects>
+                <viewController storyboardIdentifier="SolutionsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qa1-hA-XKU" customClass="SolutionsViewController" customModule="CODIUM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7sr-Rj-o7z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSN-CE-KGy">
+                                <rect key="frame" x="10" y="0.0" width="394" height="736"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="su7-Xw-IK8">
+                                <rect key="frame" x="8" y="151" width="398" height="577"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGC-k0-Wa2">
+                                <rect key="frame" x="8" y="52" width="398" height="91"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Year Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l4b-4T-0DN">
+                                        <rect key="frame" x="8" y="8" width="382" height="30"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3v-qe-Cyr">
+                                        <rect key="frame" x="290" y="48" width="100" height="35"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="G9q-3t-Sth"/>
+                                            <constraint firstAttribute="height" constant="35" id="xWp-cz-mPz"/>
+                                        </constraints>
+                                        <state key="normal" title="View">
+                                            <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkYearOnClick:" destination="qa1-hA-XKU" eventType="touchUpInside" id="MqU-aR-yF4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="l4b-4T-0DN" firstAttribute="leading" secondItem="zGC-k0-Wa2" secondAttribute="leading" constant="8" id="Ewl-3l-BO5"/>
+                                    <constraint firstAttribute="height" constant="91" id="Geg-KY-yiN"/>
+                                    <constraint firstItem="l4b-4T-0DN" firstAttribute="top" secondItem="zGC-k0-Wa2" secondAttribute="top" constant="8" id="I5f-3D-UCs"/>
+                                    <constraint firstAttribute="trailing" secondItem="l4b-4T-0DN" secondAttribute="trailing" constant="8" id="Lmj-k7-quZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="R3v-qe-Cyr" secondAttribute="trailing" constant="8" id="SZy-S0-uyN"/>
+                                    <constraint firstItem="R3v-qe-Cyr" firstAttribute="top" secondItem="l4b-4T-0DN" secondAttribute="bottom" constant="10" id="XVt-zW-ici"/>
+                                    <constraint firstAttribute="bottom" secondItem="R3v-qe-Cyr" secondAttribute="bottom" constant="8" id="oGI-rq-TGO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wSN-CE-KGy" firstAttribute="leading" secondItem="7sr-Rj-o7z" secondAttribute="leading" constant="10" id="3Tl-Qb-dHF"/>
+                            <constraint firstItem="su7-Xw-IK8" firstAttribute="top" secondItem="zGC-k0-Wa2" secondAttribute="bottom" constant="8" id="CYb-7n-CWx"/>
+                            <constraint firstItem="eg1-NP-ic6" firstAttribute="trailing" secondItem="zGC-k0-Wa2" secondAttribute="trailing" constant="8" id="GoT-ET-oCd"/>
+                            <constraint firstItem="eg1-NP-ic6" firstAttribute="bottom" secondItem="su7-Xw-IK8" secondAttribute="bottom" constant="8" id="WQD-Ym-vyY"/>
+                            <constraint firstItem="zGC-k0-Wa2" firstAttribute="top" secondItem="eg1-NP-ic6" secondAttribute="top" constant="8" id="aNq-Qx-i8k"/>
+                            <constraint firstAttribute="bottom" secondItem="wSN-CE-KGy" secondAttribute="bottom" id="aSJ-KK-hb1"/>
+                            <constraint firstItem="eg1-NP-ic6" firstAttribute="trailing" secondItem="su7-Xw-IK8" secondAttribute="trailing" constant="8" id="h6h-bO-6pd"/>
+                            <constraint firstItem="wSN-CE-KGy" firstAttribute="top" secondItem="7sr-Rj-o7z" secondAttribute="top" id="nBe-vi-eii"/>
+                            <constraint firstItem="zGC-k0-Wa2" firstAttribute="leading" secondItem="eg1-NP-ic6" secondAttribute="leading" constant="8" id="o2L-6V-kLb"/>
+                            <constraint firstItem="su7-Xw-IK8" firstAttribute="leading" secondItem="eg1-NP-ic6" secondAttribute="leading" constant="8" id="u2d-BV-4Vg"/>
+                            <constraint firstAttribute="trailing" secondItem="wSN-CE-KGy" secondAttribute="trailing" constant="10" id="wYc-1h-8bL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eg1-NP-ic6"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="FizzBuzz" id="NXY-Cr-tA2">
+                        <barButtonItem key="backBarButtonItem" title=" " id="yuH-5X-s1e"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="inputBackGroundView" destination="zGC-k0-Wa2" id="Hvm-Yk-fbU"/>
+                        <outlet property="inputBackGroundViewConstraint" destination="Geg-KY-yiN" id="QW4-Jq-EGb"/>
+                        <outlet property="resultLabel" destination="wSN-CE-KGy" id="jsi-n1-jWR"/>
+                        <outlet property="yearTextField" destination="l4b-4T-0DN" id="7Su-wm-9LW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PIY-OA-v2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="976.81159420289862" y="152.44565217391306"/>
+        </scene>
+    </scenes>
+</document>
