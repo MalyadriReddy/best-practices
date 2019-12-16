@@ -88,62 +88,61 @@ class SolutionsInteractor: SolutionsInteractorInterface {
   }
   
   private func getLeftTrianglePattern(value: Int) -> String {
-    var leftPatter: String = ""
+    var leftPattern: String = ""
     for i in 1...value {
       for _ in 1...i {
         print("*", terminator: "")
-        leftPatter += "*"
+        leftPattern += "*"
       }
       print("")
-        leftPatter += "\n"
+        leftPattern += "\n"
     }
-    return leftPatter
+    return leftPattern
   }
 
   private func getRightTrianglePattern(value: Int) -> String {
-    var rightPatter: String = ""
+    var rightPattern: String = ""
     for i in  0..<value{
       for _ in i..<value{
-        //  add this string to rightPatter
         print( terminator : " ")
-        rightPatter += " "
+        rightPattern += " "
       }
       for _ in 0...i{
         print("*",terminator : "")
-        rightPatter += "*"
+        rightPattern += "*"
       }
       print(" ")
-        rightPatter += "\n"
+        rightPattern += "\n"
     }
-    return rightPatter
+    return rightPattern
   }
   
   private func getInvertVPatter(value: Int) -> String {
-    var invertVPatter: String = ""
+    var invertVPattern: String = ""
     for i in 0...value {
       
       for _ in i..<value {
         
         print(terminator : " ")
-        invertVPatter += " "
+        invertVPattern += " "
       }
       for j in 0..<i*2 {
         
         if j==1 || j==i*2-1 {
           
           print("*",terminator : " ")
-            invertVPatter += "*"
+            invertVPattern += "*"
         }
         else {
           
           print(terminator : " ")
-            invertVPatter += " "
+            invertVPattern += " "
         }
       }
       print(" ")
-        invertVPatter += "\n"
+        invertVPattern += "\n"
     }
-    return invertVPatter
+    return invertVPattern
   }
   
   private func getXPattern(number: Int) -> String {
@@ -167,123 +166,107 @@ class SolutionsInteractor: SolutionsInteractorInterface {
     return xPattern
   }
   
-  private func getDiamondPattern(number: Int) -> String {
-    var diamonPattern: String = ""
-    for i in 1...number {
-      for _ in stride(from: number, to: i, by: -1) {
-        print(terminator : " ")
-        diamonPattern += " "
-      }
-      for _ in 1...i {
-        print("*",terminator : " ")
-        diamonPattern += "*" + " "
-      }
-      print("")
-        diamonPattern += "\n"
+    private func getDiamondPattern(number: Int) -> String {
+        var diamonPattern: String = ""
+        
+        for i in 1...number {
+            for _ in 0..<(number-i) {
+                print(" ", terminator: "")
+                diamonPattern += " "
+            }
+            
+            for _ in 1...2*i-1 {
+                print("*", terminator: "")
+                diamonPattern += "*"
+            }
+            print("")
+            diamonPattern += "\n"
+        }
+        
+        if (number > 1) {
+            for j in 2...number {
+                let i = number - j + 1
+                for _ in 0..<(number-i) {
+                    print(" ", terminator: "")
+                    diamonPattern += " "
+                }
+                
+                for _ in 1...2*i-1 {
+                    print("*", terminator: "")
+                    diamonPattern += "*"
+                }
+                print("")
+                diamonPattern += "\n"
+            }
+        }
+        
+        return diamonPattern
     }
-    for i in stride(from: number, to: 0, by: -1) {
-      for _ in stride(from: number, to: i-1, by: -1) {
-        print(terminator : " ")
-        diamonPattern += " "
-      }
-      for _ in stride(from: 1, to: i, by: 1){
-        print("*",terminator : " ")
-        diamonPattern += "*" + " "
-      }
-      print("")
-        diamonPattern += "\n"
-    }
-    return diamonPattern
-  }
   
     private func getLettersPattern(number: Int) -> String {
         var lettersPattern: String = ""
-        for i in 0...number {
-            for _ in i..<number {
-                if i>=1 {
-                    print(terminator : "A")
-                    lettersPattern += "A"
-                }
-                else {
-                    print(terminator : " ")
-                    lettersPattern += " "
-                }
+        for i in 1...number {
+            for _ in 0..<(number-i) {
+                print("A", terminator: "")
+                lettersPattern += "A"
             }
-            for j in 0..<i*2 {
-                if j==1 || j==i*2-1 {
-                    
-                    print("+",terminator : "")
-                    lettersPattern += "+"
-                }
-                else {
-                    if j >= (i-j) {
-                        print(terminator : "E")
+            
+            for l in 1...2*i-1 {
+                if i==number {
+                    if l==1 || l==2*i-1 {
+                        print("+",terminator: "")
+                        lettersPattern += "+"
+                    }
+                    else {
+                        print("E", terminator: "")
                         lettersPattern += "E"
                     }
                 }
-            }
-            for _ in number..<number*2-i {
-                if i>=1 {
-                    print(terminator : "B")
-                    lettersPattern += "B"
-                }
                 else {
-                    print(terminator : " ")
-                    lettersPattern += " "
+                    if (l==i) && i > 1 {
+                        print("E", terminator: "")
+                        lettersPattern += "E"
+                    }
+                    else {
+                        print("+", terminator: "")
+                        lettersPattern += "+"
+                    }
                 }
             }
             
-            print(" ")
+            for _ in ((number..<(number*2)-i)).reversed() {
+                print("B",terminator: "")
+                lettersPattern += "B"
+            }
+            print("")
             lettersPattern += "\n"
         }
-        for i in 0...number {
-            
-            for j in 0..<i{
+        
+        if (number > 1) {
+            for j in 2...number {
+                let i = number - j + 1
+                for _ in 0..<(number-i) {
+                    print("C", terminator: "")
+                    lettersPattern += "C"
+                }
                 
-                if( j==i-1 ){
-                    print("+",terminator: "")
-                }else{
-                    if j != 0 {
-                        print("",terminator: "C");
-                    }
-                }
-            }
-            
-            for j in ((i...(number*2)-i)).reversed() {
-                if (j-1)==i && i != 0{
-                    
-                    if j == number-1 {
-                        print("+",terminator: "D")
-                        print("")
-                    }
-                    else if j >= number {
-                        print("+",terminator: "D")
-                        print("")
-                    }
-                        
-                    else {
-                        print("+")
-                    }
-                }
-                else{
-                    if i != 0 && i != j {
-                        print("E",terminator: "")
+                for m in 1...2*i-1 {
+                    if (m==i) && j < number {
+                        print("E", terminator: "")
+                        lettersPattern += "E"
                     }
                     else {
-                        if i != number && i != 0 {
-                            print("", terminator: "C")
-                        }
-                        
-                        if i == number {
-                            for k in number+1...number*2-1 {
-                                
-                                if k > number {
-                                    print(terminator : "D")
-                                }
-                            }
-                        }
+                        print("+", terminator: "")
+                        lettersPattern += "+"
                     }
                 }
+                
+                for _ in ((number..<(number*2)-i)).reversed() {
+                    print("D",terminator: "")
+                    lettersPattern += "D"
+                }
+                print("")
+                lettersPattern += "\n"
             }
         }
         return lettersPattern
@@ -294,7 +277,6 @@ class SolutionsInteractor: SolutionsInteractorInterface {
     return difference
   }
   
-  // New Function
   private func getPrimeNumbers(range: Int) -> String {
     var numbers = [Int](2 ..< range)
     for i in 0..<range - 2 {
